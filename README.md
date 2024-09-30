@@ -1,6 +1,38 @@
 # TranscriptAnalyzer
+
 Compare the transcripts of two or more youtube videos and determine if the creators are having converstaions availablein both videos.
 
-Videos in common: `python3 main.py VeH1fynKu6w 6KxT-yGbvBo`
+## Setup
 
-Videos NOT in commong: `python3 main.py VeH1fynKu6w 5pUCF6RQa50`
+1. Clone the repository:
+
+```bash
+git clone https://github.com/cgallarno/TranscriptAnalyzer.git
+cd TranscriptAnalyzer
+```
+
+2. Create / activate virtual envrionment
+
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Use it!
+   - Videos in common:
+
+```bash
+python3 main.py VeH1fynKu6w 6KxT-yGbvBo
+```
+
+    * Videos NOT in common:
+
+```bash
+python3 main.py VeH1fynKu6w 5pUCF6RQa50
+```
