@@ -1,6 +1,6 @@
 # TranscriptAnalyzer
 
-Compare the transcripts of two or more youtube videos and determine if the creators are having converstaions availablein both videos.
+Compare the transcripts of two or more YoutTube videos and determine if the creators are having conversations available in both videos.
 
 ## Setup
 
