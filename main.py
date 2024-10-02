@@ -2,7 +2,6 @@ import sys
 from youtube_transcript_api import YouTubeTranscriptApi
 from nltk.metrics import edit_distance
 
-
 def normalize_levenshtein_distance(s1, s2):
     distance = edit_distance(s1, s2)
     max_len = max(len(s1), len(s2))
