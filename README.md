@@ -7,7 +7,7 @@ Compare the transcripts of two or more YoutTube videos and determine if the crea
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/cgallarno/TranscriptAnalyzer.git
+git clone https://github.com//TranscriptAnalyzer.git
 cd TranscriptAnalyzer
 ```
 
@@ -51,7 +51,6 @@ python3 main.py HNEw7bZy8hc hKOFewS0JW0
 ```
 
 #### Videos NOT in common:
->>>>>>> fd81baf7d244c8194cfe6e38eb61cd22da5934e1
 
 ```bash
 python3 main.py VeH1fynKu6w 5pUCF6RQa50
