@@ -16,7 +16,7 @@ def fetch_transcript(video_ids):
         print(f"Error fetching transcripts: {e}")
         return {}
 
-def find_common_chunks(transcripts):
+def find_common_chunks(transcripts, quick_compare=False):
     try:
         [video_id_1, video_id_2] = list(transcripts.keys())
 
@@ -42,10 +42,15 @@ def find_common_chunks(transcripts):
                 if ' ' not in chunk_2['text']:
                     continue
 
-                # Using levenshtein distance to account for minor variances in YouTubes automatic captioning
-                # This is an expensive operation inside of doubly nested loop.
-                # Consider other algorithims such as LCS or n-gram, and hashing to avoid multiple loops    
-                similarity = normalize_levenshtein_distance(chunk_1['text'], chunk_2['text'])
+                similarity = 0.0
+                if quick_compare:
+                    if chunk_1['text'] == chunk_2['text']: similarity = 1.0
+                else:
+                    # Using levenshtein distance to account for minor variances in YouTubes automatic captioning
+                    # This is an expensive operation inside of doubly nested loop.
+                    # Consider other algorithims such as LCS or n-gram, and hashing to avoid multiple loops    
+                    similarity = normalize_levenshtein_distance(chunk_1['text'], chunk_2['text'])
+
                 if similarity > 0.6: 
                     chunk_1['video_id'] = video_id_1
                     chunk_2['video_id'] = video_id_2
