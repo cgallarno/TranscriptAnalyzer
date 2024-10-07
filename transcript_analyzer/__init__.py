@@ -1,1 +1,1 @@
-from .transcript_analyzer import fetch_transcript, find_common_chunks
+from .main import fetch_transcript, find_common_chunks
