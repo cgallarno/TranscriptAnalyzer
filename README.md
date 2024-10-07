@@ -56,3 +56,9 @@ python3 main.py HNEw7bZy8hc hKOFewS0JW0
 ```bash
 python3 main.py VeH1fynKu6w 5pUCF6RQa50
 ```
+
+
+### To rebuild the package so other app (curious-cosmos) can use it
+```
+./rebuild_package.sh
+```
