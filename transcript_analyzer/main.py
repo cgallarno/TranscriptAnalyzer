@@ -1,6 +1,11 @@
 import sys
+import os
 from youtube_transcript_api import YouTubeTranscriptApi
 from nltk.metrics import edit_distance
+
+proxy_url = os.getenv("YT_TRANSCRIPT_PROXY_URL")
+
+proxies = {"https:", proxy_url } if proxy_url else None
 
 def normalize_levenshtein_distance(s1, s2):
     distance = edit_distance(s1, s2)
@@ -10,7 +15,7 @@ def normalize_levenshtein_distance(s1, s2):
 
 def fetch_transcript(video_ids):
     try:
-        transcripts, _ = YouTubeTranscriptApi.get_transcripts(video_ids)
+        transcripts, _ = YouTubeTranscriptApi.get_transcripts(video_ids, proxies=proxies)
         return transcripts
     except Exception as e:
         print(f"Error fetching transcripts: {e}")
@@ -74,7 +79,7 @@ if __name__ == '__main__':
     print("Successfully fetched transcripts")
 
     matched_chunks = 0
-    for chunk in find_common_chunks(transcripts):
+    for chunk in find_common_chunks(transcripts, False):
         matched_chunks += 1
         print(f'===== Similarity {chunk[2]} ======')
         print(f"({chunk[0]['start']}) {chunk[0]['text']} - https://www.youtube.com/watch?v={chunk[0]['video_id']}&t={chunk[0]['start']}s")
